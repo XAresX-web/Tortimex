@@ -7,23 +7,42 @@ import './globals.css'
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://tortimex.com.mx"),
   title: 'Tortimex | Productos de Maíz de Alta Calidad | Jalisco, México',
-  description: 'Tortimex es líder en la producción y distribución de tortillas, masa y totopos de alta calidad en Jalisco. Procesos tradicionales con estándares modernos para restaurantes, taquerías y distribuidores.',
-  keywords: 'tortillas, masa, totopos, maíz, Jalisco, México, distribución, restaurantes, taquerías',
+  description:
+    'Tortimex es líder en la producción y distribución de tortillas, masa y totopos de alta calidad en Jalisco.',
+  keywords: [
+    'tortillas',
+    'masa',
+    'totopos',
+    'maíz',
+    'Jalisco',
+    'México',
+    'Guadalajara',
+    'Tlaquepaque',
+    'tortillería',
+    'molino',
+    'insumos para tortillería',
+    'distribución',
+  ],
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: 'TORTIMEX | Productos de Maíz de Alta Calidad',
+    description:
+      'Producción y distribución de tortillas, masa y totopos en Jalisco, México.',
+    url: 'https://tortimex.com.mx',
+    siteName: 'Tortimex',
+    locale: 'es_MX',
+    type: 'website',
+  },
   icons: {
     icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
+      { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
+      { url: '/icon-dark-32x32.png', media: '(prefers-color-scheme: dark)' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
     ],
     apple: '/apple-icon.png',
   },

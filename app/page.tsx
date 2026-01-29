@@ -6,6 +6,7 @@ import { WhyChooseUs } from "@/components/why-choose-us"
 import { Process } from "@/components/process"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
+import { LocalBusinessSchema } from "@/components/LocalBusinessSchema"
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <Process />
       <Contact />
       <Footer />
+      <LocalBusinessSchema />
     </main>
   )
 }
