@@ -10,7 +10,6 @@ export const metadata: Metadata = {
   title: 'Tortimex | Productos de Maíz de Alta Calidad | Jalisco, México',
   description: 'Tortimex es líder en la producción y distribución de tortillas, masa y totopos de alta calidad en Jalisco. Procesos tradicionales con estándares modernos para restaurantes, taquerías y distribuidores.',
   keywords: 'tortillas, masa, totopos, maíz, Jalisco, México, distribución, restaurantes, taquerías',
-  generator: 'v0.app',
   icons: {
     icon: [
       {
