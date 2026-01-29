@@ -35,7 +35,7 @@ export function Process() {
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24 items-center">
           <div className="relative aspect-square lg:aspect-auto lg:h-full min-h-[400px] rounded-lg overflow-hidden">
             <Image
-              src="public/images/maquina.jpg"
+              src="/images/maquina.jpg"
               alt="Instalaciones modernas de Tortimex"
               fill
               className="object-cover"

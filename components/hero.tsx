@@ -9,7 +9,7 @@ export function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero-corn.jpg"
+          src="/images/tortillas.jpg"
           alt="Tortillas de maíz de alta calidad"
           fill
           className="object-cover"
