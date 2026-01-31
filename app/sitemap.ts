@@ -1,10 +1,14 @@
 import type { MetadataRoute } from "next";
 
+const BASE_URL = "https://tortimex.com.mx";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: "https://tortimex.com.mx/",
+      url: `${BASE_URL}/`,
       lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 1.0,
     },
   ];
 }
