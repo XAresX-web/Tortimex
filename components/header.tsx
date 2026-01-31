@@ -145,12 +145,24 @@ export function Header() {
         {/* Mobile Navigation */}
         <div
           className={`
-            md:hidden overflow-hidden transition-all duration-500 ease-in-out
-            ${isMenuOpen ? "max-h-[500px] opacity-100 mb-4" : "max-h-0 opacity-0"}
-          `}
+    md:hidden overflow-hidden transition-all duration-500 ease-in-out
+    ${isMenuOpen ? "max-h-[500px] opacity-100 mb-4" : "max-h-0 opacity-0"}
+  `}
         >
-          <div className="mt-4 rounded-2xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-2xl border border-slate-200/60 dark:border-slate-700/60 shadow-2xl shadow-slate-900/10 dark:shadow-slate-950/50 p-4">
-            <nav className="flex flex-col gap-2">
+          <div
+            className="
+      relative mt-4 rounded-3xl
+      bg-white/25 dark:bg-slate-900/30
+      backdrop-blur-[18px] backdrop-saturate-150
+      border border-white/30 dark:border-white/10
+      shadow-[0_8px_40px_rgba(0,0,0,0.15)]
+      p-4 overflow-hidden
+    "
+          >
+            {/* Glass light reflection */}
+            <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-white/40 via-transparent to-transparent" />
+
+            <nav className="relative z-10 flex flex-col gap-2">
               {navLinks.map((link, index) => (
                 <Link
                   key={link.href}
@@ -165,7 +177,7 @@ export function Header() {
               ))}
 
               {/* Separador */}
-              <div className="h-px bg-gradient-to-r from-transparent via-slate-300 dark:via-slate-700 to-transparent my-2" />
+              <div className="h-px bg-gradient-to-r from-transparent via-white/40 to-transparent my-2" />
 
               {/* CTA Button Mobile */}
               <Button
@@ -188,52 +200,17 @@ export function Header() {
             </nav>
 
             {/* Info adicional mobile */}
-            <div className="mt-4 pt-4 border-t border-slate-200/60 dark:border-slate-700/60">
-              <p className="text-xs text-center text-slate-500 dark:text-slate-400">
+            <div className="relative z-10 mt-4 pt-4 border-t border-white/30">
+              <p className="text-xs text-center text-slate-600 dark:text-slate-300">
                 Productos de maíz de alta calidad
               </p>
-              <p className="text-xs text-center text-slate-500 dark:text-slate-400 mt-1">
+              <p className="text-xs text-center text-slate-600 dark:text-slate-300 mt-1">
                 📍 Jalisco, México
               </p>
             </div>
           </div>
         </div>
       </div>
-
-      {/* CSS Animations */}
-      <style jsx>{`
-        @keyframes slideInLeft {
-          from {
-            opacity: 0;
-            transform: translateX(-20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        .animate-slideInLeft {
-          animation: slideInLeft 0.4s ease-out forwards;
-          opacity: 0;
-        }
-
-        /* Glassmorphism premium */
-        .backdrop-blur-2xl {
-          backdrop-filter: blur(24px);
-          -webkit-backdrop-filter: blur(24px);
-        }
-
-        .backdrop-blur-xl {
-          backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
-        }
-
-        .backdrop-blur-sm {
-          backdrop-filter: blur(8px);
-          -webkit-backdrop-filter: blur(8px);
-        }
-      `}</style>
     </header>
   );
 }

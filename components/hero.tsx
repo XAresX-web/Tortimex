@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, Award, TrendingUp } from "lucide-react";
+import { ArrowRight, Sparkles, Award, TrendingUp, Cpu } from "lucide-react";
 
 export function Hero() {
   return (
@@ -52,7 +52,7 @@ export function Hero() {
           {/* Título principal con efectos */}
           <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-white leading-[1.1] text-balance animate-fadeInUp">
             <span className="inline-block">Calidad,</span>{" "}
-            <span className="inline-block bg-gradient-to-r from-amber-300 via-amber-200 to-orange-300 bg-clip-text text-transparent animate-shimmer">
+            <span className="inline-block bg-gradient-to-r from-amber-300 via-amber-200 to-orange-300 bg-clip-text text-transparent">
               tradición
             </span>{" "}
             <span className="inline-block">y confianza</span>
@@ -100,8 +100,9 @@ export function Hero() {
             </Button>
           </div>
 
-          {/* Stats/Badges informativos */}
-          <div className="mt-16 flex flex-wrap items-center gap-6 sm:gap-8 animate-fadeInUp animation-delay-600">
+          {/* Stats / Badges informativos */}
+          <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 animate-fadeInUp animation-delay-600">
+            {/* Badge 1 */}
             <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg">
                 <Award className="w-5 h-5 text-white" />
@@ -112,6 +113,7 @@ export function Hero() {
               </div>
             </div>
 
+            {/* Badge 2 */}
             <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg">
                 <Sparkles className="w-5 h-5 text-white" />
@@ -122,6 +124,7 @@ export function Hero() {
               </div>
             </div>
 
+            {/* Badge 3 */}
             <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg">
                 <TrendingUp className="w-5 h-5 text-white" />
@@ -129,6 +132,19 @@ export function Hero() {
               <div>
                 <p className="text-sm text-white/70">Clientes</p>
                 <p className="text-base font-bold text-white">+500</p>
+              </div>
+            </div>
+
+            {/* Badge 4 */}
+            <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg">
+                <Cpu className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <p className="text-sm text-white/70">Innovación</p>
+                <p className="text-base font-bold text-white">
+                  Nueva generación
+                </p>
               </div>
             </div>
           </div>
