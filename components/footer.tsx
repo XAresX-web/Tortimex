@@ -108,7 +108,7 @@ export function Footer() {
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20">
                 <Sparkles className="w-4 h-4 text-amber-400" />
                 <span className="text-xs font-semibold text-slate-200">
-                  +15 Años
+                  +50 años
                 </span>
               </div>
             </div>

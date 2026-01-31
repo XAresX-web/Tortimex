@@ -118,7 +118,7 @@ export function Hero() {
               </div>
               <div>
                 <p className="text-sm text-white/70">Experiencia</p>
-                <p className="text-base font-bold text-white">+15 Años</p>
+                <p className="text-base font-bold text-white">+50 años</p>
               </div>
             </div>
 
