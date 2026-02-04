@@ -321,7 +321,7 @@ export function Products() {
               {/* CTA premium con múltiples efectos */}
               <div className="mt-16 flex justify-center">
                 <Link
-                  href="#contacto"
+                  href="https://tortisoft.com"
                   className="group/cta relative inline-flex items-center gap-3 px-10 py-5 rounded-2xl border-2 border-amber-500/40 bg-gradient-to-r from-amber-500/10 to-orange-500/10 text-white font-bold text-base sm:text-lg tracking-wide overflow-hidden transition-all duration-500 hover:border-amber-400 hover:shadow-2xl hover:shadow-amber-500/40 hover:scale-105"
                 >
                   {/* Fondo animado en hover */}
