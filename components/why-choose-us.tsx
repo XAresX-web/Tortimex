@@ -86,7 +86,7 @@ export function WhyChooseUs() {
             <div className="mt-10 grid grid-cols-3 gap-6">
               <div className="text-center">
                 <div className="text-3xl sm:text-4xl font-bold text-white">
-                  15+
+                  50+
                 </div>
                 <div className="mt-1 text-sm text-white/80">
                   Años de experiencia
