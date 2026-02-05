@@ -192,7 +192,7 @@ export function Products() {
 
                 <div className="relative">
                   <Image
-                    src="/logos/logotortisoft.png"
+                    src="/logos/logo-tortisoft.png"
                     alt="Tortisoft"
                     width={800}
                     height={260}
