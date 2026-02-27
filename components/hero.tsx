@@ -5,6 +5,29 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, Award, TrendingUp, Cpu } from "lucide-react";
 
+const badges = [
+  {
+    icon: Award,
+    label: "Sistema de Calidad",
+    value: "Control de procesos documentado",
+  },
+  {
+    icon: Sparkles,
+    label: "Trayectoria",
+    value: "Más de 10 años en el sector",
+  },
+  {
+    icon: TrendingUp,
+    label: "Confianza Empresarial",
+    value: "Empresas nacionales nos respaldan",
+  },
+  {
+    icon: Cpu,
+    label: "Operación Estandarizada",
+    value: "Producción bajo protocolos definidos",
+  },
+];
+
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -100,68 +123,39 @@ export function Hero() {
             </Button>
           </div>
 
-          {/* Stats / Badges informativos */}
-          <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 animate-fadeInUp animation-delay-600">
-            {/* Badge 1 */}
-            <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg">
-                <Award className="w-5 h-5 text-white" />
+          {/* Stats / Badges informativos — mejorados */}
+          <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-4 animate-fadeInUp animation-delay-600">
+            {badges.map(({ icon: Icon, label, value }) => (
+              <div key={label} className="stat-card">
+                <div className="stat-icon-wrap">
+                  <Icon
+                    className="w-[18px] h-[18px] text-white"
+                    strokeWidth={2}
+                  />
+                </div>
+                <div>
+                  <p className="stat-label">{label}</p>
+                  <p className="stat-value">{value}</p>
+                  <div className="stat-divider" />
+                </div>
               </div>
-              <div>
-                <p className="text-sm text-white/70">Certificación</p>
-                <p className="text-base font-bold text-white">ISO 9001</p>
-              </div>
-            </div>
-
-            {/* Badge 2 */}
-            <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg">
-                <Sparkles className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <p className="text-sm text-white/70">Experiencia</p>
-                <p className="text-base font-bold text-white">+50 años</p>
-              </div>
-            </div>
-
-            {/* Badge 3 */}
-            <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg">
-                <TrendingUp className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <p className="text-sm text-white/70">Clientes</p>
-                <p className="text-base font-bold text-white">+500</p>
-              </div>
-            </div>
-
-            {/* Badge 4 */}
-            <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg">
-                <Cpu className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <p className="text-sm text-white/70">Innovación</p>
-                <p className="text-base font-bold text-white">
-                  Nueva generación
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
 
-          {/* Indicador de confianza */}
-          <div className="mt-12 inline-flex items-center gap-2 text-white/70 text-sm animate-fadeInUp animation-delay-800">
-            <div className="flex -space-x-2">
+          {/* Indicador de confianza — mejorado */}
+          <div className="mt-10 inline-flex items-center gap-3 px-3 py-2 pr-5 rounded-full bg-white/7 border border-white/12 backdrop-blur-md animate-fadeInUp animation-delay-800">
+            <div className="flex trust-avatars">
               {[1, 2, 3, 4].map((i) => (
-                <div
-                  key={i}
-                  className="w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 border-2 border-slate-900 flex items-center justify-center shadow-lg"
-                >
-                  <span className="text-xs font-bold text-white">★</span>
+                <div key={i} className="trust-avatar">
+                  <span className="trust-star">★</span>
                 </div>
               ))}
             </div>
-            <span>Más de 500 negocios confían en nosotros</span>
+            <div className="pulse-dot" />
+            <span className="text-sm font-medium text-white/65">
+              <strong className="text-white/90 font-bold">+100 negocios</strong>{" "}
+              confían en nosotros
+            </span>
           </div>
         </div>
       </div>
@@ -178,6 +172,133 @@ export function Hero() {
 
       {/* CSS Animations */}
       <style jsx>{`
+        /* ── Fuentes ── */
+        @import url("https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap");
+
+        /* ── Badge card ── */
+        .stat-card {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+          padding: 1.125rem 1.125rem 1.25rem;
+          border-radius: 1rem;
+          background: rgba(255, 255, 255, 0.06);
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          box-shadow:
+            0 4px 24px rgba(0, 0, 0, 0.25),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+          overflow: hidden;
+          transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease,
+            border-color 0.3s ease;
+        }
+        .stat-card::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            135deg,
+            rgba(251, 191, 36, 0.08) 0%,
+            transparent 60%
+          );
+          pointer-events: none;
+        }
+        .stat-card:hover {
+          transform: translateY(-3px);
+          border-color: rgba(251, 191, 36, 0.35);
+          box-shadow:
+            0 8px 36px rgba(0, 0, 0, 0.35),
+            0 0 0 1px rgba(251, 191, 36, 0.15),
+            inset 0 1px 0 rgba(255, 255, 255, 0.14);
+        }
+
+        /* ── Icono ── */
+        .stat-icon-wrap {
+          width: 2.5rem;
+          height: 2.5rem;
+          border-radius: 0.75rem;
+          background: linear-gradient(135deg, #fbbf24 0%, #f97316 100%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 4px 14px rgba(251, 146, 60, 0.45);
+          flex-shrink: 0;
+        }
+
+        /* ── Texto ── */
+        .stat-label {
+          font-size: 0.68rem;
+          font-weight: 500;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: rgba(255, 255, 255, 0.5);
+          margin: 0;
+          line-height: 1;
+        }
+        .stat-value {
+          font-family: "Syne", sans-serif;
+          font-size: 0.9rem;
+          font-weight: 700;
+          color: #fff;
+          margin: 0.2rem 0 0;
+          line-height: 1.3;
+        }
+
+        /* ── Divisor decorativo ── */
+        .stat-divider {
+          width: 1.75rem;
+          height: 2px;
+          border-radius: 99px;
+          background: linear-gradient(90deg, #fbbf24, transparent);
+          margin-top: 0.5rem;
+        }
+
+        /* ── Trust row ── */
+        .trust-avatars {
+          display: flex;
+        }
+        .trust-avatar {
+          width: 2rem;
+          height: 2rem;
+          border-radius: 50%;
+          background: linear-gradient(135deg, #fbbf24, #f97316);
+          border: 2px solid rgba(15, 23, 42, 0.9);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-left: -0.5rem;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+          transition: transform 0.2s ease;
+        }
+        .trust-avatar:first-child {
+          margin-left: 0;
+        }
+        .trust-avatar:hover {
+          transform: scale(1.15) translateY(-2px);
+          z-index: 10;
+        }
+        .trust-star {
+          font-size: 0.65rem;
+          color: #fff;
+          line-height: 1;
+        }
+
+        /* ── Pulse dot ── */
+        .pulse-dot {
+          width: 0.45rem;
+          height: 0.45rem;
+          border-radius: 50%;
+          background: #4ade80;
+          box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.5);
+          flex-shrink: 0;
+          animation: pulse-ring 2s ease-out infinite;
+        }
+
+        /* ── Keyframes originales ── */
         @keyframes kenburns {
           0%,
           100% {
@@ -187,7 +308,6 @@ export function Hero() {
             transform: scale(1.1);
           }
         }
-
         @keyframes fadeInDown {
           from {
             opacity: 0;
@@ -198,7 +318,6 @@ export function Hero() {
             transform: translateY(0);
           }
         }
-
         @keyframes fadeInUp {
           from {
             opacity: 0;
@@ -209,17 +328,6 @@ export function Hero() {
             transform: translateY(0);
           }
         }
-
-        @keyframes shimmer {
-          0%,
-          100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-        }
-
         @keyframes scroll {
           0% {
             transform: translateY(0);
@@ -228,7 +336,6 @@ export function Hero() {
             transform: translateY(16px);
           }
         }
-
         @keyframes pulse-slow {
           0%,
           100% {
@@ -241,28 +348,33 @@ export function Hero() {
           }
         }
 
+        /* ── Keyframe nuevo ── */
+        @keyframes pulse-ring {
+          0% {
+            box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.5);
+          }
+          70% {
+            box-shadow: 0 0 0 6px rgba(74, 222, 128, 0);
+          }
+          100% {
+            box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+          }
+        }
+
+        /* ── Clases de animación ── */
         .animate-kenburns {
           animation: kenburns 20s ease-in-out infinite;
         }
-
         .animate-fadeInDown {
           animation: fadeInDown 0.8s ease-out forwards;
         }
-
         .animate-fadeInUp {
           animation: fadeInUp 0.8s ease-out forwards;
           opacity: 0;
         }
-
-        .animate-shimmer {
-          background-size: 200% 200%;
-          animation: shimmer 3s ease-in-out infinite;
-        }
-
         .animate-scroll {
           animation: scroll 1.5s ease-in-out infinite;
         }
-
         .animate-pulse-slow {
           animation: pulse-slow 4s ease-in-out infinite;
         }
@@ -270,24 +382,20 @@ export function Hero() {
         .animation-delay-200 {
           animation-delay: 200ms;
         }
-
         .animation-delay-400 {
           animation-delay: 400ms;
         }
-
         .animation-delay-600 {
           animation-delay: 600ms;
         }
-
         .animation-delay-800 {
           animation-delay: 800ms;
         }
-
         .delay-1000 {
           animation-delay: 1s;
         }
 
-        /* Glassmorphism */
+        /* ── Glassmorphism ── */
         .backdrop-blur-md {
           backdrop-filter: blur(12px);
           -webkit-backdrop-filter: blur(12px);

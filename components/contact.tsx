@@ -20,14 +20,59 @@ import {
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [phoneError, setPhoneError] = useState<string | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (isSubmitting) return; // Evita doble clic
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const nombre = String(formData.get("nombre") || "").trim();
+    const empresa = String(formData.get("empresa") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const telefono = String(formData.get("telefono") || "").trim();
+    const mensaje = String(formData.get("mensaje") || "").trim();
+
+    // 🔎 Validación estricta teléfono (10 a 15 dígitos, solo números)
+    const telefonoLimpio = telefono.replace(/\D/g, "");
+    if (telefonoLimpio.length < 10 || telefonoLimpio.length > 15) {
+      setPhoneError("Ingresa un número de teléfono válido (10-15 dígitos).");
+      return;
+    }
+
+    setPhoneError(null);
     setIsSubmitting(true);
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+
+    const texto = `
+Hola Tortimex, quiero información:
+
+Nombre: ${nombre}
+Empresa: ${empresa}
+Email: ${email}
+Teléfono: ${telefono}
+
+Mensaje:
+${mensaje}
+`;
+
+    const numero = "523339057440";
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
+
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+
+      // Limpia formulario
+      form.reset();
+
+      // Redirige después de mostrar animación
+      setTimeout(() => {
+        window.open(url, "_blank");
+      }, 1800);
+    }, 1000);
   };
 
   return (
@@ -99,11 +144,10 @@ export function Contact() {
                   </div>
 
                   <h3 className="mt-8 text-2xl font-bold text-slate-900 dark:text-white">
-                    ¡Mensaje enviado!
+                    ¡Registro Exitoso!
                   </h3>
                   <p className="mt-4 text-slate-600 dark:text-slate-300 max-w-sm leading-relaxed">
-                    Gracias por contactarnos. Un asesor se comunicará contigo
-                    pronto.
+                    Serás redirigido a WhatsApp para finalizar el envío.
                   </p>
 
                   {/* Badge de tiempo de respuesta */}
@@ -178,10 +222,18 @@ export function Contact() {
                         id="telefono"
                         name="telefono"
                         type="tel"
+                        inputMode="numeric"
+                        pattern="[0-9+ ]{10,15}"
                         placeholder="+52 33 1234 5678"
                         required
                         className="h-12 px-4 rounded-xl border-slate-300 dark:border-slate-600 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm focus:border-amber-500 focus:ring-amber-500/20 transition-all duration-300 hover:border-amber-400"
                       />
+
+                      {phoneError && (
+                        <p className="text-sm text-red-500 mt-1">
+                          {phoneError}
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -254,13 +306,13 @@ export function Contact() {
                 {
                   icon: Phone,
                   title: "Teléfono",
-                  content: "+52 33 3545 2105",
+                  content: "+52 33 3905 7440",
                   gradient: "from-emerald-500 to-green-500",
                 },
                 {
                   icon: Mail,
                   title: "Email",
-                  content: "contacto@tortimex.com",
+                  content: "contacto.tortimex@gmail.com",
                   gradient: "from-amber-500 to-orange-500",
                 },
               ].map((item, index) => (

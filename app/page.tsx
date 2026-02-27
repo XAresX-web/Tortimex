@@ -1,12 +1,13 @@
-import { Header } from "@/components/header"
-import { Hero } from "@/components/hero"
-import { About } from "@/components/about"
-import { Products } from "@/components/products"
-import { WhyChooseUs } from "@/components/why-choose-us"
-import { Process } from "@/components/process"
-import { Contact } from "@/components/contact"
-import { Footer } from "@/components/footer"
-import { LocalBusinessSchema } from "@/components/LocalBusinessSchema"
+import { Header } from "@/components/header";
+import { Hero } from "@/components/hero";
+import { About } from "@/components/about";
+import { Products } from "@/components/products";
+import { WhyChooseUs } from "@/components/why-choose-us";
+import { Process } from "@/components/process";
+import { Contact } from "@/components/contact";
+import { Footer } from "@/components/footer";
+import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
+import { TortiSoftPromo } from "@/components/TortiSoftPromo";
 
 export default function Home() {
   return (
@@ -18,8 +19,9 @@ export default function Home() {
       <WhyChooseUs />
       <Process />
       <Contact />
+      <TortiSoftPromo />
       <Footer />
       <LocalBusinessSchema />
     </main>
-  )
+  );
 }
