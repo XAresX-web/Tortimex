@@ -1,307 +1,1515 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  Sparkles,
+  Zap,
+  ShieldCheck,
+  ScanLine,
+  Rocket,
+  ChevronRight,
+  Building2,
+  CalendarClock,
+} from "lucide-react";
 import Link from "next/link";
+
+const features = [
+  { Icon: Zap, text: "Control total", sub: "Gestión en tiempo real" },
+  { Icon: ShieldCheck, text: "Cero fugas", sub: "Inventario blindado" },
+  { Icon: ScanLine, text: "Precisión absoluta", sub: "Reportes exactos" },
+];
+
+const waitlist = [
+  { initials: "JL", color: "from-amber-400 to-orange-500" },
+  { initials: "MR", color: "from-orange-400 to-red-500" },
+  { initials: "CA", color: "from-yellow-400 to-amber-500" },
+  { initials: "DP", color: "from-amber-500 to-orange-600" },
+  { initials: "EG", color: "from-orange-300 to-amber-400" },
+];
 
 export function TortiSoftPromo() {
   return (
-    <section className="relative py-24 sm:py-32 overflow-hidden">
-      {/* Fondo base de la sección */}
-      <div className="absolute inset-0 bg-gradient-to-br from-amber-50 via-white to-orange-50 dark:from-slate-950 dark:via-slate-900 dark:to-amber-950" />
+    <section className="ts-root">
+      {/* ── SCENE LAYERS ── */}
+      <div className="ts-scene">
+        <div className="ts-scene__base" />
+        <div className="ts-scene__noise" />
+        <div className="ts-scene__vignette" />
 
-      <div className="relative w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-24">
-        {/* Separador visual */}
-        <div className="relative mx-auto mb-20 h-px max-w-4xl overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-500/30 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-500/30 to-transparent animate-shimmer" />
+        {/* Gradient mesh */}
+        <div className="ts-mesh">
+          <div className="ts-mesh__node ts-mesh__node--a" />
+          <div className="ts-mesh__node ts-mesh__node--b" />
+          <div className="ts-mesh__node ts-mesh__node--c" />
+          <div className="ts-mesh__node ts-mesh__node--d" />
         </div>
 
-        {/* Card principal */}
-        <div className="group relative rounded-[2.5rem] overflow-hidden transition-all duration-700 hover:-translate-y-2">
-          {/* Fondos multicapa */}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-black dark:from-black dark:via-slate-950 dark:to-black" />
-          <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/10 via-transparent to-orange-500/10" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-900/20 via-transparent to-transparent" />
+        {/* Grid */}
+        <div className="ts-grid" />
+        <div className="ts-grid ts-grid--fade" />
 
-          {/* Patrón de grid sutil */}
-          <div
-            className="absolute inset-0 opacity-[0.03]"
-            style={{
-              backgroundImage: `linear-gradient(rgba(251,191,36,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(251,191,36,0.1) 1px, transparent 1px)`,
-              backgroundSize: "50px 50px",
-            }}
-          />
+        {/* Decorative lines */}
+        <div className="ts-deco-line ts-deco-line--h1" />
+        <div className="ts-deco-line ts-deco-line--h2" />
+        <div className="ts-deco-line ts-deco-line--v1" />
+        <div className="ts-deco-line ts-deco-line--v2" />
+      </div>
 
-          {/* Efectos de luz flotantes */}
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl animate-pulse-slow" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl animate-pulse-slow delay-1000" />
+      {/* ── EDGE GLOWS ── */}
+      <div className="ts-edge ts-edge--top" />
+      <div className="ts-edge ts-edge--bottom" />
 
-          {/* Borde animado en hover */}
-          <div className="absolute inset-0 rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-            <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-r from-amber-500/50 via-orange-500/50 to-amber-500/50 blur-xl animate-spin-slow" />
-          </div>
+      {/* ── MAIN WRAPPER ── */}
+      <div className="ts-wrapper">
+        <div className="ts-card">
+          {/* Card inner FX */}
+          <div className="ts-card__inner-glow ts-card__inner-glow--a" />
+          <div className="ts-card__inner-glow ts-card__inner-glow--b" />
+          <div className="ts-card__scanline" />
 
-          {/* Borde superior */}
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500 to-transparent" />
+          {/* Card borders */}
+          <div className="ts-card__border ts-card__border--top" />
+          <div className="ts-card__border ts-card__border--bottom" />
+          <div className="ts-card__corner ts-card__corner--tl" />
+          <div className="ts-card__corner ts-card__corner--tr" />
+          <div className="ts-card__corner ts-card__corner--bl" />
+          <div className="ts-card__corner ts-card__corner--br" />
 
-          {/* Contenido */}
-          <div className="relative px-8 py-24 sm:px-16 lg:px-24 text-center backdrop-blur-3xl">
-            {/* Badge de lanzamiento */}
-            <div className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border-2 border-amber-500/40 bg-gradient-to-r from-amber-500/15 to-orange-500/15 backdrop-blur-md mb-10 shadow-xl shadow-amber-500/20 animate-float">
-              <div className="relative">
-                <Sparkles className="w-4 h-4 text-amber-400 animate-pulse" />
-                <div className="absolute inset-0 bg-amber-400 blur-md opacity-50" />
+          {/* ── CONTENT ── */}
+          <div className="ts-content">
+            {/* Eyebrow */}
+            <div className="ts-eyebrow">
+              <div className="ts-eyebrow__pill">
+                <span className="ts-eyebrow__pulse" />
+                <span className="ts-eyebrow__label">Próximo lanzamiento</span>
+                <span className="ts-eyebrow__tag">2027</span>
               </div>
-              <span className="text-xs font-bold tracking-[0.2em] uppercase text-amber-400">
-                Próximo lanzamiento
-              </span>
-              <div className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
             </div>
 
-            {/* Logo TORTISOFT */}
-            <div className="relative mb-16 flex justify-center group/logo">
-              <div className="absolute inset-0 -z-10 bg-gradient-to-r from-amber-500/40 via-orange-500/50 to-amber-500/40 blur-[100px] opacity-60 group-hover/logo:opacity-90 transition-opacity duration-700" />
-              <div className="absolute inset-0 -z-10 bg-gradient-to-r from-transparent via-white/10 to-transparent blur-2xl" />
-
-              {/* Anillos decorativos */}
-              <div className="absolute inset-0 -z-10">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] rounded-full border border-amber-500/10 animate-ping-slow" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] rounded-full border border-orange-500/10 animate-ping-slow delay-500" />
-              </div>
-
+            {/* Logo */}
+            <div className="ts-logo">
+              <div className="ts-logo__aura" />
+              <div className="ts-logo__ring ts-logo__ring--1" />
+              <div className="ts-logo__ring ts-logo__ring--2" />
+              <div className="ts-logo__ring ts-logo__ring--3" />
               <Image
                 src="/logos/logo-tortisoft.png"
-                alt="Tortisoft"
+                alt="TortiSoft"
                 width={800}
                 height={260}
                 priority
-                className="w-auto h-32 sm:h-40 md:h-48 lg:h-56 xl:h-64 max-w-[90%] object-contain transition-all duration-700 group-hover/logo:scale-105 drop-shadow-[0_0_50px_rgba(251,191,36,0.3)]"
+                className="ts-logo__img"
               />
+              <div className="ts-logo__reflection" />
             </div>
 
-            {/* Título */}
-            <h3 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight text-white leading-[1.1] mb-4">
-              El sistema que va a{" "}
-              <span className="relative inline-block">
-                <span className="relative z-10">redefinir</span>
-                <svg
-                  className="absolute -bottom-2 left-0 w-full"
-                  height="12"
-                  viewBox="0 0 200 12"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M2 10C50 2 150 2 198 10"
-                    stroke="url(#gradient)"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    className="animate-draw"
-                  />
-                  <defs>
-                    <linearGradient
-                      id="gradient"
-                      x1="0%"
-                      y1="0%"
-                      x2="100%"
-                      y2="0%"
+            {/* Headline */}
+            <div className="ts-headline__wrap">
+              <h3 className="ts-headline">
+                <span className="ts-headline__line ts-headline__line--1">
+                  El sistema que va a{" "}
+                  <span className="ts-headline__underline">
+                    <span className="ts-headline__underline-text">
+                      redefinir
+                    </span>
+                    <svg
+                      className="ts-headline__underline-svg"
+                      height="10"
+                      viewBox="0 0 260 10"
+                      fill="none"
+                      aria-hidden="true"
+                      preserveAspectRatio="none"
                     >
-                      <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.4" />
-                      <stop
-                        offset="50%"
-                        stopColor="#f97316"
-                        stopOpacity="0.8"
+                      <path
+                        d="M2 8C65 2 195 2 258 8"
+                        stroke="url(#tsg-ul)"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        className="ts-headline__underline-path"
                       />
-                      <stop
-                        offset="100%"
-                        stopColor="#f59e0b"
-                        stopOpacity="0.4"
-                      />
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </span>
-              <br />
-              <span className="relative inline-block mt-2">
-                <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-amber-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
-                  las tortillerías
+                      <defs>
+                        <linearGradient
+                          id="tsg-ul"
+                          x1="0%"
+                          y1="0%"
+                          x2="100%"
+                          y2="0%"
+                        >
+                          <stop
+                            offset="0%"
+                            stopColor="#fbbf24"
+                            stopOpacity="0.15"
+                          />
+                          <stop
+                            offset="45%"
+                            stopColor="#f97316"
+                            stopOpacity="1"
+                          />
+                          <stop
+                            offset="100%"
+                            stopColor="#fbbf24"
+                            stopOpacity="0.15"
+                          />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </span>
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              </span>
-            </h3>
-
-            {/* Línea decorativa */}
-            <div className="flex items-center justify-center gap-3 my-10">
-              <div className="h-px w-12 bg-gradient-to-r from-transparent to-amber-500/40" />
-              <Sparkles className="w-5 h-5 text-amber-400 animate-pulse" />
-              <div className="h-px w-12 bg-gradient-to-l from-transparent to-amber-500/40" />
+                <span className="ts-headline__line ts-headline__line--2">
+                  <span className="ts-headline__grad">las tortillerías</span>
+                </span>
+              </h3>
             </div>
 
-            {/* Descripción */}
-            <p className="text-lg sm:text-xl lg:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed font-light">
-              Estamos construyendo{" "}
-              <span className="font-bold text-white relative">
-                TortiSoft
-                <span className="absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-amber-500 to-orange-500" />
-              </span>
-              : el software de administración y punto de venta más avanzado
-              jamás creado para tortillerías.
-            </p>
+            {/* Ornament */}
+            <div className="ts-ornament" aria-hidden="true">
+              <div className="ts-ornament__line ts-ornament__line--l" />
+              <div className="ts-ornament__diamond">
+                <div className="ts-ornament__diamond-inner" />
+              </div>
+              <div className="ts-ornament__line ts-ornament__line--r" />
+            </div>
 
-            <p className="mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl text-slate-400 max-w-4xl mx-auto leading-relaxed font-light">
-              Inspirado en los mejores sistemas del mercado, pero llevado a un
-              nivel que{" "}
-              <span className="text-amber-400 font-semibold">nunca antes</span>{" "}
-              se había visto.
-            </p>
+            {/* Description */}
+            <div className="ts-copy">
+              <p className="ts-copy__main">
+                Estamos construyendo{" "}
+                <strong className="ts-copy__brand">
+                  TortiSoft
+                  <span className="ts-copy__brand-line" />
+                </strong>
+                : el software de administración y punto de venta más avanzado
+                jamás creado para tortillerías.
+              </p>
+              <p className="ts-copy__sub">
+                Inspirado en los mejores sistemas del mercado, llevado a un
+                nivel que <em className="ts-copy__accent">nunca antes</em> se
+                había visto.
+              </p>
+            </div>
 
-            {/* Features pills */}
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
-              {[
-                { icon: "⚡", text: "Control total" },
-                { icon: "🔒", text: "Cero fugas" },
-                { icon: "🎯", text: "Precisión absoluta" },
-              ].map((feature, index) => (
+            {/* Features */}
+            <div className="ts-features" role="list">
+              {features.map(({ Icon, text, sub }, i) => (
                 <div
-                  key={feature.text}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 shadow-lg animate-fadeInUp"
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  key={text}
+                  className="ts-feat"
+                  role="listitem"
+                  style={{ "--i": i } as React.CSSProperties}
                 >
-                  <span className="text-2xl">{feature.icon}</span>
-                  <span className="text-sm font-semibold text-white">
-                    {feature.text}
-                  </span>
+                  <div className="ts-feat__glow" />
+                  <div className="ts-feat__icon-wrap" aria-hidden="true">
+                    <Icon className="ts-feat__icon" strokeWidth={2} />
+                  </div>
+                  <div className="ts-feat__body">
+                    <span className="ts-feat__title">{text}</span>
+                    <span className="ts-feat__sub">{sub}</span>
+                  </div>
+                  <div className="ts-feat__border-reveal" />
                 </div>
               ))}
             </div>
 
-            {/* CTA */}
-            <div className="mt-16 flex justify-center">
-              <Link
-                href="https://tortisoft.com"
-                className="group/cta relative inline-flex items-center gap-3 px-10 py-5 rounded-2xl border-2 border-amber-500/40 bg-gradient-to-r from-amber-500/10 to-orange-500/10 text-white font-bold text-base sm:text-lg tracking-wide overflow-hidden transition-all duration-500 hover:border-amber-400 hover:shadow-2xl hover:shadow-amber-500/40 hover:scale-105"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-amber-500/20 to-orange-500/20 opacity-0 group-hover/cta:opacity-100 transition-opacity duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover/cta:translate-x-[200%] transition-transform duration-1000" />
-                <span className="relative z-10 bg-gradient-to-r from-white to-amber-100 bg-clip-text text-transparent">
-                  Quiero ser de los primeros
-                </span>
-                <ArrowRight className="relative z-10 w-5 h-5 text-amber-400 transition-transform duration-300 group-hover/cta:translate-x-2" />
-                <div className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-amber-400 opacity-0 group-hover/cta:opacity-100 animate-ping" />
-              </Link>
-            </div>
-
-            {/* Microcopy */}
-            <div className="mt-10 flex flex-col items-center gap-3">
-              <div className="flex items-center gap-3">
-                <div className="h-px w-8 bg-gradient-to-r from-transparent to-slate-600" />
-                <p className="text-xs text-slate-500 tracking-[0.15em] uppercase font-semibold">
-                  Lanzamiento próximamente
-                </p>
-                <div className="h-px w-8 bg-gradient-to-l from-transparent to-slate-600" />
+            {/* Meta strip mejorado */}
+            <div className="ts-meta" role="contentinfo">
+              <div className="ts-meta__status">
+                <span className="ts-meta__pulse" />
+                <span className="ts-meta__live">Activo</span>
               </div>
 
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/50 border border-slate-700/50">
-                <div className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-                <span className="text-xs text-slate-400 font-medium">
+              <div className="ts-meta__divider" aria-hidden="true" />
+
+              <div className="ts-meta__brand">
+                <span className="ts-meta__text">
                   Tortimex Software Division
                 </span>
               </div>
             </div>
 
-            {/* Lista de espera */}
-            <div className="mt-12 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-emerald-500/10 border border-emerald-500/20">
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4, 5].map((i) => (
+            {/* Waitlist */}
+            <div className="ts-waitlist">
+              <div className="ts-waitlist__card">
+                <div
+                  className="ts-waitlist__avatars"
+                  aria-label="Usuarios en lista de espera"
+                >
+                  {waitlist.map(({ initials, color }, i) => (
+                    <div
+                      key={initials}
+                      className={`ts-waitlist__avatar bg-gradient-to-br ${color}`}
+                      style={{ zIndex: waitlist.length - i }}
+                      aria-hidden="true"
+                    >
+                      <span className="ts-waitlist__avatar-text">
+                        {initials}
+                      </span>
+                    </div>
+                  ))}
                   <div
-                    key={i}
-                    className="w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 border-2 border-slate-900 flex items-center justify-center shadow-lg"
+                    className="ts-waitlist__avatar ts-waitlist__avatar--more"
+                    style={{ zIndex: 0 }}
+                    aria-hidden="true"
                   >
-                    <span className="text-xs font-bold text-white">+</span>
+                    <span className="ts-waitlist__avatar-plus">+</span>
                   </div>
-                ))}
+                </div>
+
+                <div className="ts-waitlist__divider" aria-hidden="true" />
+
+                <div className="ts-waitlist__info">
+                  <div className="ts-waitlist__live-row"></div>
+                  <p className="ts-waitlist__count">
+                    <strong>+50 tortillerías</strong> ya en lista de espera
+                  </p>
+                </div>
               </div>
-              <span className="text-sm font-semibold text-emerald-400">
-                Únete a la lista de espera
-              </span>
+              <p className="ts-waitlist__micro">
+                Sin tarjeta de crédito · Acceso anticipado gratuito
+              </p>
             </div>
           </div>
-
-          {/* Borde inferior */}
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-500 to-transparent" />
+          {/* /ts-content */}
         </div>
-
-        {/* Sombra decorativa externa */}
-        <div className="absolute -inset-4 -z-10 bg-gradient-to-r from-amber-500/10 via-orange-500/20 to-amber-500/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[3rem]" />
+        {/* /ts-card */}
       </div>
+      {/* /ts-wrapper */}
 
-      {/* CSS Animations */}
+      {/* ── STYLES ── */}
       <style jsx>{`
-        @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0px);
+        @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap");
+
+        /* ╔══════════════════════════════════════════════════╗
+           ║  DESIGN TOKENS                                   ║
+           ╚══════════════════════════════════════════════════╝ */
+        .ts-root {
+          --gold-50: #fffbeb;
+          --gold-100: #fef3c7;
+          --gold-300: #fcd34d;
+          --gold-400: #fbbf24;
+          --gold-500: #f59e0b;
+          --amber: #f97316;
+          --green: #34d399;
+          --green-dim: #10b981;
+
+          --ink-950: #050610;
+          --ink-900: #07091a;
+          --ink-800: #0c0f24;
+          --ink-700: #111428;
+
+          --white: #ffffff;
+          --slate-300: #cbd5e1;
+          --slate-400: #94a3b8;
+          --slate-500: #64748b;
+          --slate-600: #475569;
+
+          --radius-card: 2.5rem;
+          --radius-pill: 9999px;
+          --radius-feat: 1.25rem;
+          --radius-cta: 1.125rem;
+          --radius-icon: 0.875rem;
+
+          --transition-fast: 180ms cubic-bezier(0.4, 0, 0.2, 1);
+          --transition-med: 320ms cubic-bezier(0.4, 0, 0.2, 1);
+          --transition-slow: 600ms cubic-bezier(0.22, 1, 0.36, 1);
+          --transition-spring: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+          --shadow-glow-gold: 0 0 60px rgba(251, 191, 36, 0.18);
+          --shadow-glow-amber: 0 0 60px rgba(249, 115, 22, 0.14);
+          --shadow-card:
+            0 40px 120px rgba(0, 0, 0, 0.6), 0 8px 32px rgba(0, 0, 0, 0.4);
+
+          position: relative;
+          width: 100%;
+          overflow: hidden;
+          font-family: "DM Sans", sans-serif;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ╔══════════════════════════════════════════════════╗
+           ║  SCENE / BACKGROUND SYSTEM                       ║
+           ╚══════════════════════════════════════════════════╝ */
+        .ts-scene {
+          position: absolute;
+          inset: 0;
+          z-index: 0;
+          pointer-events: none;
+        }
+        .ts-scene__base {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            180deg,
+            var(--ink-900) 0%,
+            var(--ink-950) 40%,
+            #060812 70%,
+            var(--ink-900) 100%
+          );
+        }
+        /* Subtle film grain texture via SVG filter */
+        .ts-scene__noise {
+          position: absolute;
+          inset: 0;
+          opacity: 0.028;
+          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+          background-size: 256px;
+        }
+        /* Radial vignette */
+        .ts-scene__vignette {
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(
+            ellipse 80% 80% at 50% 50%,
+            transparent 30%,
+            rgba(0, 0, 0, 0.55) 100%
+          );
+        }
+
+        /* Gradient mesh nodes */
+        .ts-mesh {
+          position: absolute;
+          inset: 0;
+        }
+        .ts-mesh__node {
+          position: absolute;
+          border-radius: 50%;
+          filter: blur(130px);
+          pointer-events: none;
+          will-change: transform, opacity;
+        }
+        .ts-mesh__node--a {
+          width: 900px;
+          height: 900px;
+          top: -25%;
+          left: -15%;
+          background: radial-gradient(
+            ellipse,
+            rgba(251, 191, 36, 0.09) 0%,
+            transparent 65%
+          );
+          animation: meshDrift 20s ease-in-out infinite;
+        }
+        .ts-mesh__node--b {
+          width: 700px;
+          height: 700px;
+          bottom: -20%;
+          right: -12%;
+          background: radial-gradient(
+            ellipse,
+            rgba(249, 115, 22, 0.07) 0%,
+            transparent 65%
+          );
+          animation: meshDrift 25s ease-in-out infinite reverse;
+        }
+        .ts-mesh__node--c {
+          width: 1100px;
+          height: 500px;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: radial-gradient(
+            ellipse,
+            rgba(251, 191, 36, 0.04) 0%,
+            transparent 70%
+          );
+          animation: meshDrift 30s ease-in-out infinite 5s;
+        }
+        .ts-mesh__node--d {
+          width: 400px;
+          height: 400px;
+          top: 8%;
+          right: 8%;
+          background: radial-gradient(
+            ellipse,
+            rgba(251, 191, 36, 0.05) 0%,
+            transparent 65%
+          );
+          animation: meshDrift 18s ease-in-out infinite 3s;
+        }
+
+        /* Dot grid */
+        .ts-grid {
+          position: absolute;
+          inset: 0;
+          background-image: radial-gradient(
+            circle,
+            rgba(251, 191, 36, 0.14) 1px,
+            transparent 1px
+          );
+          background-size: 44px 44px;
+          opacity: 0.045;
+        }
+        .ts-grid--fade {
+          background-image: none;
+          background: linear-gradient(
+            180deg,
+            transparent 0%,
+            transparent 30%,
+            rgba(251, 191, 36, 0.018) 60%,
+            transparent 100%
+          );
+          opacity: 1;
+        }
+
+        /* Decorative lines */
+        .ts-deco-line {
+          position: absolute;
+          pointer-events: none;
+        }
+        .ts-deco-line--h1 {
+          top: 20%;
+          left: 0;
+          right: 0;
+          height: 1px;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(251, 191, 36, 0.04) 40%,
+            rgba(251, 191, 36, 0.04) 60%,
+            transparent
+          );
+        }
+        .ts-deco-line--h2 {
+          bottom: 20%;
+          left: 0;
+          right: 0;
+          height: 1px;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(249, 115, 22, 0.03) 40%,
+            rgba(249, 115, 22, 0.03) 60%,
+            transparent
+          );
+        }
+        .ts-deco-line--v1 {
+          left: 8%;
+          top: 0;
+          bottom: 0;
+          width: 1px;
+          background: linear-gradient(
+            180deg,
+            transparent,
+            rgba(251, 191, 36, 0.03) 50%,
+            transparent
+          );
+        }
+        .ts-deco-line--v2 {
+          right: 8%;
+          top: 0;
+          bottom: 0;
+          width: 1px;
+          background: linear-gradient(
+            180deg,
+            transparent,
+            rgba(251, 191, 36, 0.03) 50%,
+            transparent
+          );
+        }
+
+        /* Section edge glows */
+        .ts-edge {
+          position: absolute;
+          left: 0;
+          right: 0;
+          height: 1.5px;
+          z-index: 4;
+          pointer-events: none;
+        }
+        .ts-edge--top {
+          top: 0;
+          background: linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(251, 191, 36, 0.3) 15%,
+            rgba(249, 115, 22, 0.95) 50%,
+            rgba(251, 191, 36, 0.3) 85%,
+            transparent 100%
+          );
+          box-shadow: 0 0 24px rgba(249, 115, 22, 0.4);
+        }
+        .ts-edge--bottom {
+          bottom: 0;
+          background: linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(249, 115, 22, 0.25) 25%,
+            rgba(251, 191, 36, 0.5) 50%,
+            rgba(249, 115, 22, 0.25) 75%,
+            transparent 100%
+          );
+        }
+
+        /* ╔══════════════════════════════════════════════════╗
+           ║  LAYOUT: WRAPPER + CARD                          ║
+           ╚══════════════════════════════════════════════════╝ */
+        .ts-wrapper {
+          position: relative;
+          z-index: 1;
+          padding: 0;
+        }
+        @media (min-width: 1024px) {
+          .ts-wrapper {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 4rem 2.5rem;
+          }
+        }
+        @media (min-width: 1280px) {
+          .ts-wrapper {
+            padding: 5rem 4rem;
+          }
+        }
+        @media (min-width: 1536px) {
+          .ts-wrapper {
+            padding: 5.5rem 6rem;
+          }
+        }
+
+        .ts-card {
+          position: relative;
+          overflow: hidden;
+        }
+        @media (min-width: 1024px) {
+          .ts-card {
+            border-radius: var(--radius-card);
+            border: 1px solid rgba(255, 255, 255, 0.055);
+            background: rgba(255, 255, 255, 0.012);
+            backdrop-filter: blur(2px);
+            box-shadow: var(--shadow-card);
+            transition: transform var(--transition-slow);
+          }
+          .ts-card:hover {
+            transform: translateY(-5px);
+          }
+        }
+
+        /* Inner glow FX */
+        .ts-card__inner-glow {
+          position: absolute;
+          pointer-events: none;
+          border-radius: 50%;
+          z-index: 0;
+          filter: blur(100px);
+          will-change: opacity, transform;
+        }
+        .ts-card__inner-glow--a {
+          width: 28rem;
+          height: 28rem;
+          top: -4rem;
+          left: 20%;
+          background: rgba(251, 191, 36, 0.14);
+          animation: glowPulse 6s ease-in-out infinite;
+        }
+        .ts-card__inner-glow--b {
+          width: 24rem;
+          height: 24rem;
+          bottom: -4rem;
+          right: 20%;
+          background: rgba(249, 115, 22, 0.12);
+          animation: glowPulse 8s ease-in-out infinite 2s;
+        }
+
+        /* Scanline hint */
+        .ts-card__scanline {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          z-index: 0;
+          background: repeating-linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.022) 0px,
+            rgba(0, 0, 0, 0.022) 1px,
+            transparent 1px,
+            transparent 3px
+          );
+        }
+
+        /* Card borders */
+        .ts-card__border {
+          position: absolute;
+          left: 0;
+          right: 0;
+          height: 1px;
+          z-index: 2;
+          pointer-events: none;
+        }
+        .ts-card__border--top {
+          top: 0;
+          background: linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(251, 191, 36, 0.12) 10%,
+            rgba(251, 191, 36, 0.7) 50%,
+            rgba(251, 191, 36, 0.12) 90%,
+            transparent 100%
+          );
+        }
+        .ts-card__border--bottom {
+          bottom: 0;
+          background: linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(249, 115, 22, 0.08) 20%,
+            rgba(249, 115, 22, 0.4) 50%,
+            rgba(249, 115, 22, 0.08) 80%,
+            transparent 100%
+          );
+        }
+
+        /* Corner brackets */
+        .ts-card__corner {
+          position: absolute;
+          width: 24px;
+          height: 24px;
+          z-index: 3;
+          pointer-events: none;
+          display: none;
+        }
+        @media (min-width: 1024px) {
+          .ts-card__corner {
+            display: block;
+          }
+        }
+        .ts-card__corner--tl {
+          top: 0;
+          left: 0;
+          border-top: 1.5px solid rgba(251, 191, 36, 0.6);
+          border-left: 1.5px solid rgba(251, 191, 36, 0.6);
+          border-top-left-radius: var(--radius-card);
+        }
+        .ts-card__corner--tr {
+          top: 0;
+          right: 0;
+          border-top: 1.5px solid rgba(251, 191, 36, 0.6);
+          border-right: 1.5px solid rgba(251, 191, 36, 0.6);
+          border-top-right-radius: var(--radius-card);
+        }
+        .ts-card__corner--bl {
+          bottom: 0;
+          left: 0;
+          border-bottom: 1.5px solid rgba(249, 115, 22, 0.4);
+          border-left: 1.5px solid rgba(249, 115, 22, 0.4);
+          border-bottom-left-radius: var(--radius-card);
+        }
+        .ts-card__corner--br {
+          bottom: 0;
+          right: 0;
+          border-bottom: 1.5px solid rgba(249, 115, 22, 0.4);
+          border-right: 1.5px solid rgba(249, 115, 22, 0.4);
+          border-bottom-right-radius: var(--radius-card);
+        }
+
+        /* ╔══════════════════════════════════════════════════╗
+           ║  CONTENT AREA                                    ║
+           ╚══════════════════════════════════════════════════╝ */
+        .ts-content {
+          position: relative;
+          z-index: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          padding: 4rem 1.25rem 5rem;
+          gap: 0;
+        }
+        @media (min-width: 480px) {
+          .ts-content {
+            padding: 5rem 1.75rem 5.5rem;
+          }
+        }
+        @media (min-width: 640px) {
+          .ts-content {
+            padding: 5.5rem 2.5rem 6rem;
+          }
+        }
+        @media (min-width: 1024px) {
+          .ts-content {
+            padding: 6rem 5rem 7rem;
+          }
+        }
+        @media (min-width: 1280px) {
+          .ts-content {
+            padding: 7rem 8rem 8rem;
+          }
+        }
+        @media (min-width: 1536px) {
+          .ts-content {
+            padding: 8rem 12rem 9rem;
+          }
+        }
+
+        /* ── EYEBROW ── */
+        .ts-eyebrow {
+          margin-bottom: 3rem;
+        }
+        .ts-eyebrow__pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.55rem;
+          padding: 0.5rem 1.2rem 0.5rem 0.875rem;
+          border-radius: var(--radius-pill);
+          border: 1px solid rgba(251, 191, 36, 0.22);
+          background: rgba(251, 191, 36, 0.055);
+          backdrop-filter: blur(16px);
+          box-shadow:
+            0 0 0 1px rgba(251, 191, 36, 0.04),
+            0 0 30px rgba(251, 191, 36, 0.07),
+            inset 0 1px 0 rgba(255, 255, 255, 0.05);
+          animation: eyebrowFloat 5s ease-in-out infinite;
+        }
+        .ts-eyebrow__pulse {
+          width: 0.44rem;
+          height: 0.44rem;
+          border-radius: 50%;
+          background: var(--green);
+          box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+          animation: liveRipple 2.4s ease-out infinite;
+          flex-shrink: 0;
+        }
+        .ts-eyebrow__icon {
+          width: 0.8rem;
+          height: 0.8rem;
+          color: var(--gold-400);
+          filter: drop-shadow(0 0 4px rgba(251, 191, 36, 0.5));
+          animation: sparkPulse 3s ease-in-out infinite;
+        }
+        .ts-eyebrow__label {
+          font-size: 0.65rem;
+          font-weight: 700;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: var(--gold-400);
+        }
+        .ts-eyebrow__tag {
+          font-size: 0.58rem;
+          font-weight: 800;
+          letter-spacing: 0.1em;
+          padding: 0.15rem 0.5rem;
+          border-radius: var(--radius-pill);
+          background: rgba(251, 191, 36, 0.12);
+          border: 1px solid rgba(251, 191, 36, 0.2);
+          color: rgba(251, 191, 36, 0.7);
+        }
+
+        /* ── LOGO ── */
+        .ts-logo {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          margin-bottom: 3.75rem;
+          width: 100%;
+        }
+        .ts-logo__aura {
+          position: absolute;
+          inset: -60px;
+          background: radial-gradient(
+            ellipse,
+            rgba(251, 191, 36, 0.16) 0%,
+            transparent 65%
+          );
+          filter: blur(40px);
+          pointer-events: none;
+          animation: glowPulse 5s ease-in-out infinite;
+        }
+        .ts-logo__ring {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          border-radius: var(--radius-pill);
+          border: 1px solid;
+          pointer-events: none;
+        }
+        .ts-logo__ring--1 {
+          width: 108%;
+          height: 220%;
+          border-color: rgba(251, 191, 36, 0.055);
+          animation: ringPulse 6s ease-in-out infinite;
+        }
+        .ts-logo__ring--2 {
+          width: 120%;
+          height: 280%;
+          border-color: rgba(249, 115, 22, 0.03);
+          animation: ringPulse 8s ease-in-out infinite 1s;
+        }
+        .ts-logo__ring--3 {
+          width: 135%;
+          height: 340%;
+          border-color: rgba(251, 191, 36, 0.018);
+          animation: ringPulse 10s ease-in-out infinite 2s;
+        }
+        .ts-logo__img {
+          position: relative;
+          z-index: 1;
+          width: auto;
+          max-width: 92vw;
+          height: 5.5rem;
+          object-fit: contain;
+          filter: drop-shadow(0 0 48px rgba(251, 191, 36, 0.2)) brightness(1.04);
+          transition:
+            filter var(--transition-slow),
+            transform var(--transition-slow);
+        }
+        @media (min-width: 480px) {
+          .ts-logo__img {
+            height: 7rem;
+            max-width: 88vw;
+          }
+        }
+        @media (min-width: 640px) {
+          .ts-logo__img {
+            height: 8.5rem;
+          }
+        }
+        @media (min-width: 768px) {
+          .ts-logo__img {
+            height: 10rem;
+          }
+        }
+        @media (min-width: 1024px) {
+          .ts-logo__img {
+            height: 12rem;
+          }
+        }
+        @media (min-width: 1280px) {
+          .ts-logo__img {
+            height: 14rem;
+          }
+        }
+        .ts-logo:hover .ts-logo__img {
+          filter: drop-shadow(0 0 80px rgba(251, 191, 36, 0.42))
+            brightness(1.08);
+          transform: scale(1.025) translateY(-3px);
+        }
+        /* Logo reflection */
+        .ts-logo__reflection {
+          position: absolute;
+          bottom: -1.5rem;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 60%;
+          height: 2px;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(251, 191, 36, 0.22),
+            transparent
+          );
+          border-radius: var(--radius-pill);
+          filter: blur(4px);
+        }
+
+        /* ── HEADLINE ── */
+        .ts-headline__wrap {
+          margin-bottom: 0;
+        }
+        .ts-headline {
+          font-family: "Playfair Display", serif;
+          font-size: clamp(1.9rem, 7vw, 5.25rem);
+          font-weight: 900;
+          color: var(--white);
+          line-height: 1.08;
+          letter-spacing: -0.025em;
+          margin: 0;
+        }
+        .ts-headline__line {
+          display: block;
+        }
+        .ts-headline__line--1 {
+          font-size: clamp(1.4rem, 4.5vw, 3.4rem);
+          font-weight: 700;
+          color: rgba(255, 255, 255, 0.72);
+          letter-spacing: -0.01em;
+          margin-bottom: 0.2em;
+        }
+        .ts-headline__line--2 {
+          display: block;
+        }
+        .ts-headline__underline {
+          position: relative;
+          display: inline-block;
+        }
+        .ts-headline__underline-text {
+          position: relative;
+          z-index: 1;
+        }
+        .ts-headline__underline-svg {
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          width: 100%;
+          overflow: visible;
+          pointer-events: none;
+        }
+        .ts-headline__underline-path {
+          stroke-dasharray: 300;
+          stroke-dashoffset: 300;
+          animation: drawLine 2s ease-out 0.6s forwards;
+        }
+        .ts-headline__grad {
+          display: inline-block;
+          background: linear-gradient(
+            100deg,
+            #fde68a 0%,
+            #fbbf24 25%,
+            #fb923c 55%,
+            #f97316 75%,
+            #fde68a 100%
+          );
+          background-size: 250% auto;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          animation: gradientShift 5s ease infinite;
+          filter: drop-shadow(0 2px 24px rgba(249, 115, 22, 0.25));
+        }
+        /* ── ORNAMENT ── */
+        .ts-ornament {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          margin: 2.75rem 0;
+          width: 100%;
+          max-width: 400px;
+          position: relative;
+        }
+
+        .ts-ornament__line {
+          flex: 1;
+          height: 1px;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(251, 191, 36, 0.28)
+          );
+        }
+
+        .ts-ornament__diamond {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 10px;
+          height: 10px;
+          transform: rotate(45deg);
+          background: rgba(251, 191, 36, 0.3);
+          border: 1px solid rgba(251, 191, 36, 0.5);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          box-shadow: 0 0 10px rgba(251, 191, 36, 0.25);
+          animation: sparkPulse 3s ease-in-out infinite;
+        }
+
+        .ts-ornament__diamond-inner {
+          width: 3px;
+          height: 3px;
+          background: var(--gold-400);
+          border-radius: 1px;
+        }
+
+        @keyframes sparkPulse {
+          0% {
+            transform: scale(0.75);
+            opacity: 0.5;
           }
           50% {
-            transform: translateY(-10px);
-          }
-        }
-        @keyframes shimmer {
-          0% {
-            transform: translateX(-100%);
+            transform: scale(1);
+            opacity: 1;
           }
           100% {
-            transform: translateX(100%);
+            transform: scale(0.75);
+            opacity: 0.5;
           }
         }
-        @keyframes draw {
-          0% {
-            stroke-dasharray: 0 200;
-          }
-          100% {
-            stroke-dasharray: 200 0;
+
+        /* ── COPY ── */
+        .ts-copy {
+          max-width: 760px;
+        }
+        .ts-copy__main {
+          font-size: clamp(0.92rem, 2.2vw, 1.28rem);
+          color: rgba(203, 213, 225, 0.82);
+          line-height: 1.82;
+          font-weight: 300;
+          margin: 0 0 0.875rem;
+        }
+        .ts-copy__brand {
+          font-weight: 700;
+          color: var(--white);
+          position: relative;
+          display: inline-block;
+        }
+        .ts-copy__brand-line {
+          position: absolute;
+          bottom: -1px;
+          left: 0;
+          right: 0;
+          height: 1.5px;
+          background: linear-gradient(90deg, var(--gold-400), var(--amber));
+          border-radius: var(--radius-pill);
+          display: block;
+        }
+        .ts-copy__sub {
+          font-size: clamp(0.84rem, 1.7vw, 1.08rem);
+          color: rgba(148, 163, 184, 0.65);
+          line-height: 1.82;
+          font-weight: 300;
+          margin: 0;
+        }
+        .ts-copy__accent {
+          color: var(--gold-400);
+          font-weight: 600;
+          font-style: normal;
+        }
+
+        /* ── FEATURES ── */
+        .ts-features {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 0.875rem;
+          margin-top: 3rem;
+          width: 100%;
+        }
+        .ts-feat {
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.875rem;
+          padding: 1rem 1.625rem;
+          border-radius: var(--radius-feat);
+          background: rgba(255, 255, 255, 0.028);
+          border: 1px solid rgba(255, 255, 255, 0.065);
+          backdrop-filter: blur(14px);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.04),
+            0 4px 24px rgba(0, 0, 0, 0.25);
+          transition:
+            border-color var(--transition-med),
+            background var(--transition-med),
+            transform var(--transition-spring),
+            box-shadow var(--transition-med);
+          text-align: left;
+          overflow: hidden;
+          /* fade-up entry */
+          opacity: 0;
+          animation: fadeUp 0.7s ease-out calc(var(--i) * 120ms) forwards;
+        }
+        .ts-feat:hover {
+          border-color: rgba(251, 191, 36, 0.28);
+          background: rgba(251, 191, 36, 0.048);
+          transform: translateY(-6px) scale(1.01);
+          box-shadow:
+            0 16px 40px rgba(0, 0, 0, 0.4),
+            0 0 0 1px rgba(251, 191, 36, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        }
+        .ts-feat__glow {
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(
+            ellipse at center,
+            rgba(251, 191, 36, 0.06) 0%,
+            transparent 70%
+          );
+          opacity: 0;
+          transition: opacity var(--transition-med);
+          pointer-events: none;
+          border-radius: inherit;
+        }
+        .ts-feat:hover .ts-feat__glow {
+          opacity: 1;
+        }
+        .ts-feat__icon-wrap {
+          position: relative;
+          width: 2.5rem;
+          height: 2.5rem;
+          border-radius: var(--radius-icon);
+          background: linear-gradient(
+            135deg,
+            rgba(251, 191, 36, 0.16),
+            rgba(249, 115, 22, 0.1)
+          );
+          border: 1px solid rgba(251, 191, 36, 0.18);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          box-shadow: 0 4px 16px rgba(251, 191, 36, 0.22);
+          transition:
+            transform var(--transition-spring),
+            box-shadow var(--transition-med);
+        }
+        .ts-feat:hover .ts-feat__icon-wrap {
+          transform: rotate(-6deg) scale(1.1);
+          box-shadow: 0 6px 22px rgba(251, 191, 36, 0.36);
+        }
+        .ts-feat__icon {
+          width: 1.1rem;
+          height: 1.1rem;
+          color: var(--gold-400);
+        }
+        .ts-feat__body {
+          display: flex;
+          flex-direction: column;
+          gap: 0.12rem;
+        }
+        .ts-feat__title {
+          font-size: 0.84rem;
+          font-weight: 700;
+          color: rgba(255, 255, 255, 0.9);
+          line-height: 1.25;
+        }
+        .ts-feat__sub {
+          font-size: 0.7rem;
+          color: rgba(148, 163, 184, 0.55);
+          font-weight: 400;
+        }
+        /* hover border reveal */
+        .ts-feat__border-reveal {
+          position: absolute;
+          bottom: 0;
+          left: 20%;
+          right: 20%;
+          height: 1px;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(251, 191, 36, 0.5),
+            transparent
+          );
+          transform: scaleX(0);
+          transition: transform var(--transition-med);
+          pointer-events: none;
+        }
+        .ts-feat:hover .ts-feat__border-reveal {
+          transform: scaleX(1);
+        }
+
+        .ts-meta {
+          display: inline-flex;
+          align-items: center;
+          gap: 18px;
+          padding: 10px 20px;
+          border-radius: 999px;
+          background: linear-gradient(
+            135deg,
+            rgba(20, 25, 40, 0.85),
+            rgba(10, 15, 25, 0.75)
+          );
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          backdrop-filter: blur(14px);
+          margin-top: 2rem;
+          font-size: 12px;
+        }
+
+        .ts-meta__status {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .ts-meta__pulse {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: #22c55e;
+          box-shadow: 0 0 10px rgba(34, 197, 94, 0.7);
+        }
+
+        .ts-meta__live {
+          font-size: 13px;
+          font-weight: 600;
+          color: #22c55e;
+          letter-spacing: 0.5px;
+          text-transform: uppercase;
+        }
+
+        .ts-meta__divider {
+          width: 1px;
+          height: 18px;
+          background: rgba(255, 255, 255, 0.12);
+        }
+
+        .ts-meta__brand {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .ts-meta__icon {
+          width: 16px;
+          height: 16px;
+          color: rgba(255, 255, 255, 0.6);
+        }
+
+        .ts-meta__text {
+          font-size: 13px;
+          font-weight: 500;
+          color: rgba(255, 255, 255, 0.85);
+          letter-spacing: 0.4px;
+        }
+
+        /* ── WAITLIST ── */
+        .ts-waitlist {
+          margin-top: 3rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.875rem;
+        }
+        .ts-waitlist__card {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+          gap: 1.125rem;
+          padding: 1.125rem 1.75rem;
+          border-radius: 1.5rem;
+          background: rgba(255, 255, 255, 0.022);
+          border: 1px solid rgba(255, 255, 255, 0.055);
+          backdrop-filter: blur(14px);
+          box-shadow:
+            0 4px 24px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.04);
+          transition:
+            border-color var(--transition-med),
+            background var(--transition-med);
+          max-width: 700px;
+          width: 100%;
+        }
+        .ts-waitlist__card:hover {
+          border-color: rgba(52, 211, 153, 0.18);
+          background: rgba(16, 185, 129, 0.025);
+        }
+
+        /* Avatars */
+        .ts-waitlist__avatars {
+          display: flex;
+        }
+        .ts-waitlist__avatar {
+          width: 2.25rem;
+          height: 2.25rem;
+          border-radius: 50%;
+          border: 2px solid rgba(7, 9, 26, 0.95);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-left: -0.55rem;
+          box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+          transition: transform var(--transition-spring);
+          flex-shrink: 0;
+          cursor: default;
+        }
+        .ts-waitlist__avatar:first-child {
+          margin-left: 0;
+        }
+        .ts-waitlist__avatar:hover {
+          transform: scale(1.18) translateY(-4px);
+          z-index: 10 !important;
+        }
+        .ts-waitlist__avatar--more {
+          background: rgba(255, 255, 255, 0.055);
+          border-color: rgba(255, 255, 255, 0.09);
+        }
+        .ts-waitlist__avatar-text {
+          font-size: 0.52rem;
+          font-weight: 800;
+          color: var(--white);
+          letter-spacing: 0.02em;
+          line-height: 1;
+        }
+        .ts-waitlist__avatar-plus {
+          font-size: 0.85rem;
+          font-weight: 800;
+          color: rgba(251, 191, 36, 0.8);
+          line-height: 1;
+        }
+
+        .ts-waitlist__divider {
+          width: 1px;
+          height: 2.5rem;
+          background: rgba(255, 255, 255, 0.07);
+          flex-shrink: 0;
+        }
+        @media (max-width: 479px) {
+          .ts-waitlist__divider {
+            display: none;
           }
         }
-        @keyframes gradient {
+
+        .ts-waitlist__info {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.28rem;
+        }
+        .ts-waitlist__live-row {
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
+        }
+        .ts-waitlist__live-dot {
+          width: 0.42rem;
+          height: 0.42rem;
+          border-radius: 50%;
+          background: var(--green);
+          box-shadow: 0 0 6px rgba(52, 211, 153, 0.7);
+          animation: liveRipple 2.4s ease-out infinite;
+        }
+        .ts-waitlist__live-label {
+          font-size: 0.62rem;
+          font-weight: 600;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          color: rgba(52, 211, 153, 0.75);
+        }
+        .ts-waitlist__count {
+          font-size: 0.8rem;
+          font-weight: 400;
+          color: rgba(203, 213, 225, 0.75);
+          line-height: 1.35;
+          margin: 0;
+        }
+        .ts-waitlist__count strong {
+          color: var(--white);
+          font-weight: 700;
+        }
+
+        /* Join CTA */
+        .ts-waitlist__cta {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.6rem 1.25rem;
+          border-radius: var(--radius-feat);
+          background: rgba(16, 185, 129, 0.08);
+          border: 1px solid rgba(16, 185, 129, 0.2);
+          color: rgba(52, 211, 153, 0.88);
+          font-size: 0.78rem;
+          font-weight: 600;
+          text-decoration: none;
+          transition:
+            background var(--transition-med),
+            border-color var(--transition-med),
+            transform var(--transition-spring),
+            box-shadow var(--transition-med);
+          white-space: nowrap;
+        }
+        .ts-waitlist__cta:hover {
+          background: rgba(16, 185, 129, 0.16);
+          border-color: rgba(52, 211, 153, 0.36);
+          transform: translateY(-3px);
+          box-shadow: 0 8px 24px rgba(16, 185, 129, 0.14);
+        }
+        .ts-waitlist__cta-arrow {
+          width: 0.75rem;
+          height: 0.75rem;
+          transition: transform var(--transition-fast);
+        }
+        .ts-waitlist__cta:hover .ts-waitlist__cta-arrow {
+          transform: translateX(4px);
+        }
+        .ts-waitlist__micro {
+          font-size: 0.6rem;
+          color: rgba(255, 255, 255, 0.2);
+          font-weight: 500;
+          letter-spacing: 0.05em;
+        }
+
+        /* ╔══════════════════════════════════════════════════╗
+           ║  KEYFRAMES                                       ║
+           ╚══════════════════════════════════════════════════╝ */
+        @keyframes meshDrift {
           0%,
           100% {
+            transform: translate(0, 0) scale(1);
+          }
+          33% {
+            transform: translate(30px, -22px) scale(1.05);
+          }
+          66% {
+            transform: translate(-20px, 30px) scale(0.96);
+          }
+        }
+        @keyframes glowPulse {
+          0%,
+          100% {
+            opacity: 0.7;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 1;
+            transform: scale(1.08);
+          }
+        }
+        @keyframes ringPulse {
+          0%,
+          100% {
+            opacity: 0.6;
+          }
+          50% {
+            opacity: 1;
+          }
+        }
+        @keyframes liveRipple {
+          0% {
+            box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.75);
+          }
+          60% {
+            box-shadow: 0 0 0 6px rgba(52, 211, 153, 0);
+          }
+          100% {
+            box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+          }
+        }
+        @keyframes eyebrowFloat {
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-5px);
+          }
+        }
+        @keyframes sparkPulse {
+          0%,
+          100% {
+            opacity: 1;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 0.55;
+            transform: scale(0.9);
+          }
+        }
+        @keyframes drawLine {
+          from {
+            stroke-dashoffset: 300;
+          }
+          to {
+            stroke-dashoffset: 0;
+          }
+        }
+        @keyframes gradientShift {
+          0% {
             background-position: 0% 50%;
           }
           50% {
             background-position: 100% 50%;
           }
-        }
-        @keyframes spin-slow {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-        @keyframes ping-slow {
-          75%,
           100% {
-            transform: scale(1.1);
-            opacity: 0;
+            background-position: 0% 50%;
           }
         }
-        @keyframes pulse-slow {
-          0%,
-          100% {
-            opacity: 0.3;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 0.5;
-            transform: scale(1.05);
-          }
-        }
-        @keyframes fadeInUp {
+        @keyframes fadeUp {
           from {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(18px);
           }
           to {
             opacity: 1;
@@ -309,46 +1517,15 @@ export function TortiSoftPromo() {
           }
         }
 
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
-        }
-        .animate-shimmer {
-          animation: shimmer 3s ease-in-out infinite;
-        }
-        .animate-draw {
-          animation: draw 2s ease-out forwards;
-        }
-        .animate-gradient {
-          animation: gradient 3s ease infinite;
-        }
-        .animate-spin-slow {
-          animation: spin-slow 20s linear infinite;
-        }
-        .animate-ping-slow {
-          animation: ping-slow 3s cubic-bezier(0, 0, 0.2, 1) infinite;
-        }
-        .animate-pulse-slow {
-          animation: pulse-slow 4s ease-in-out infinite;
-        }
-        .animate-fadeInUp {
-          animation: fadeInUp 0.8s ease-out forwards;
-          opacity: 0;
-        }
-
-        .delay-500 {
-          animation-delay: 0.5s;
-        }
-        .delay-1000 {
-          animation-delay: 1s;
-        }
-
-        .backdrop-blur-sm {
-          backdrop-filter: blur(8px);
-          -webkit-backdrop-filter: blur(8px);
-        }
-        .backdrop-blur-md {
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
+        /* ── Reduced motion ── */
+        @media (prefers-reduced-motion: reduce) {
+          *,
+          *::before,
+          *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+          }
         }
       `}</style>
     </section>
